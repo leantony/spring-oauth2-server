@@ -4,8 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CredentialsRepository extends JpaRepository<Credentials, Long> {
+public interface UsersRepository extends JpaRepository<Users, Long> {
 
-    Credentials findByName(String name);
+    Users findByName(String name);
 
 }

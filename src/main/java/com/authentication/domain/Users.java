@@ -5,8 +5,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity(name = "credentials")
-public class Credentials {
+@Entity(name = "users")
+public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,7 +21,14 @@ public class Credentials {
     @NotEmpty
     private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "user_authorities",
+            joinColumns = {
+            @JoinColumn(name = "user_id")
+    },
+            inverseJoinColumns = {
+            @JoinColumn(name = "authority_id")
+    })
     private List<Authority> authorities;
 
     private boolean enabled;
