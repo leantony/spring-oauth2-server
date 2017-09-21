@@ -20,7 +20,7 @@
             <a href="#">Home</a>
         </li>
         <li>
-            <a href="/logout.do" th:if="${#authorization.expression('isAuthenticated()')}">Logout</a>
+            <a href="/logout.do">Logout</a>
         </li>
     </ul>
 </div>
@@ -29,7 +29,7 @@
 
     <h1 th:if="${param.client}" class="page-header">Edit client <span th:text="${param.client[0]}"></span></h1>
 
-    <div class="row">
+    <div class="row" style="margin-bottom: 50px;">
         <div class="col-xs-12 col-md-12">
             <div th:if="${param.client}" class="alert alert-warning">Editing a client will delete all user approvals and active tokens.</div>
             <form th:action="'/clients/edit'" method="post">
