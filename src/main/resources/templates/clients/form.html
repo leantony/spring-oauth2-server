@@ -13,6 +13,17 @@
     </script>
 </head>
 <body>
+<div class="navbar">
+    <a class="navbar-brand" href="#">Authentication server</a>
+    <ul class="nav navbar-nav">
+        <li class="active">
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <a href="/logout.do" th:if="${#authorization.expression('isAuthenticated()')}">Logout</a>
+        </li>
+    </ul>
+</div>
 <div class="container">
     <h1 th:if="!${param.client}" class="page-header">Add client</h1>
 
